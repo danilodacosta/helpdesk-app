@@ -1,40 +1,41 @@
 <div [ngClass]="classCss" role="alert" *ngIf="message">
-  <strong> {{ message.text }} </strong>
+  <strong>{{ message.text }}</strong>
 </div>
 <div class="row">
-  <div class="col-md-8">
-    <div class="box">
-      <div class="box-header with-border">
-        <h3 class="box-title">Lista de Usuários</h3>
-      </div>
-
-      <!-- /.box-header -->
-      <div class="box-body">
-        <table class="table table-bordered">
-          <tr>
-            <th>e-Mail</th>
-            <th>Perfil</th>
-            <th style="width: 10px">&nbsp</th>
-            <th style="width: 10px">&nbsp</th>
-          </tr>
-          <tr *ngFor="let item of listUser" >
-            <td>{{item.email}}</td>
-            <td>{{item.profile}}</td>
-            <td><button class="btn btn-primary" (click)="edit(item.id)">Editar</button></td>
-            <td><button class="btn btn-danger" (click)="delete(item.id)">Remover</button></td>
-          </tr>
-
-        </table>
-      </div>
-      <!-- /.box-body -->
-      <div class="box-footer clearfix">
-        <ul class="pagination pagination-sm no-margin pull-right">
-          <li><a href=""(click)="setPreviousPage($event)">&laquo;</a></li>
-          <li *ngFor="let page of pages; let i=index">
-            <a [ngClass]="{'pagination-focus' : i === page}" href="" (click)="setNextPage(i, $event)">{{i +1}}</a>
-          </li>
-          <li><a href="" (click)="setNextPage($event)">&raquo;</a></li>
-        </ul>
-      </div>
-    </div>
-    <!-- /.box -->
+<div class="col-md-8">
+<div class="box">
+  <div class="box-header with-border">
+    <h3 class="box-title">Lista de Usuarios</h3>
+  </div>
+  <div class="box-body table-responsive no-padding">
+    <table class="table table-bordered table-condensed">
+      <tr>
+        <th>Email</th>
+        <th>Perfil</th>
+        <th style="width: 5px">&nbsp;</th>
+        <th style="width: 5px; margin-right:5px;">&nbsp;</th>
+      </tr>
+      <tr *ngFor="let user of listUser">
+        <td>{{user.email}}</td>
+        <td>{{user.profile}}</td>
+        <td><button class="btn btn-primary btn-xs" (click)="edit(user.id)">Editar
+          <i class="fa fa-pencil"></i>
+        </button></td>
+        <td><button style="margin-right: 7px;" class="btn btn-danger btn-xs" (click)="delete(user.id)">Deletar
+          <i class="fa fa-trash"></i>
+        </button></td>
+      </tr>
+    </table>
+  </div>
+  <div class="box-footer clearfix">
+    <ul class="pagination pagination-sm no-margin pull-right">
+      <li><a href="" (click)="setPreviousPage($event)">&laquo;</a></li>
+      <li *ngFor="let p of pages; let i=index">
+          <a [ngClass]="{'pagination-focus':i==page}"  href="" (click)="setPage(i,$event)">{{i+1}}</a>
+      </li>
+      <li><a href="" (click)="setNextPage($event)">&raquo;</a></li>
+    </ul>
+  </div>
+</div>
+</div>
+</div>

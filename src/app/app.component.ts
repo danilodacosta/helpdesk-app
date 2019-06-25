@@ -6,7 +6,7 @@ import { SharedService } from './service/shared.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent  {
+export class AppComponent implements OnInit {
 
   showTemplate = false;
   public shared: SharedService;

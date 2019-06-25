@@ -1,14 +1,11 @@
-<app-header *ngIf="showTemplate"></app-header>
-<app-menu   *ngIf="showTemplate"></app-menu>
-<!-- Content Wrapper. Contains page content -->
+<app-header [hidden]="!showTemplate"></app-header>
+<app-menu [hidden]="!showTemplate"></app-menu>
 <div [ngClass]="showContentWrapper()">
-
-  <!-- Content Header (Page header) -->
   <section class="content-header">
   </section>
-  <!-- Main content -->
   <section class="content">
+      <!--p>Content here....</p -->
       <router-outlet></router-outlet>
   </section>
 </div>
-<app-footer *ngIf="showTemplate"></app-footer>
+<app-footer [hidden]="!showTemplate"></app-footer>

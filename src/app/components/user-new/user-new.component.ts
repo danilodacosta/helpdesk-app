@@ -80,7 +80,7 @@ export class UserNewComponent implements OnInit {
     this.classCss['alert-' + type] = true;
   }
 
-  getFromGruopClass(isInvalid: boolean , isDirty): {} {
+  getFormGroupClass(isInvalid: boolean , isDirty): {} {
     return {
       'form-group'  : true,
       'has-error'   : isInvalid && isDirty,

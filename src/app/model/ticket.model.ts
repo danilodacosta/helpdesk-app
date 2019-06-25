@@ -8,11 +8,15 @@ export class Ticket {
     public title: string,
     public status: string,
     public priority: string,
-    public description: string,
     public image: string,
     public user: User,
     public assignedUser: User,
-    public data: string,
+    public date: string,
     public changes: Array<string>
   ) {}
+
+  public equals(obj: Ticket) : boolean {
+    return this.number === obj.number;
+}
+
 }
